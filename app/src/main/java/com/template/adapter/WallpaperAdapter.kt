@@ -1,6 +1,8 @@
 package com.template.adapter
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.icu.number.Scale
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +22,8 @@ class WallpaperAdapter(private val context: Context, private val dataset: ArrayL
 
     override fun onBindViewHolder(holder: WallpaperViewHolder, position: Int) {
         val item = dataset[position]
-        Glide.with(context).load(item.image).into(holder.wallImg)
+        Glide.with(context).load(item.image).centerCrop().into(holder.wallImg)
+
     }
 
     override fun getItemCount(): Int = dataset.size

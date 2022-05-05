@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = "Wallpaper"
+        binding.toolbar.elevation = 5F
         lManager = LinearLayoutManager(this)
         dataset = LoadData().loadWall()
         adapter = WallpaperAdapter(this, dataset)
@@ -32,8 +33,8 @@ class MainActivity : AppCompatActivity() {
             recycler.layoutManager = lManager
             recycler.adapter = adapter
         }
-        binding.recycler.wallClick { finish() }
-        binding.recycler.doubleWallClick { Toast.makeText(this, "two", Toast.LENGTH_SHORT).show() }
+        binding.recycler.doubleWallClick {
+            Toast.makeText(this, "${it+1}", Toast.LENGTH_SHORT).show() }
     }
 
     private inline fun RecyclerView.wallClick(crossinline action: (position: Int) -> Unit) =
