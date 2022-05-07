@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8BBD0"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:background="#65F8BBD0"
+        android:elevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recomended wallpaper"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/exitImg"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/img_eight"
+        android:scaleType="centerCrop"/>
+<Button
+    android:id="@+id/exitSetWallBtn"
+    android:backgroundTint="@color/colorAccent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:text="Set wallpaper"
+    android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/exitBtn"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Exit"
+        android:textAllCaps="false"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
