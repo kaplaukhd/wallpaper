@@ -2,6 +2,7 @@ package com.template
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,11 +34,18 @@ class MainActivity : AppCompatActivity() {
             recycler.layoutManager = lManager
             recycler.adapter = adapter
         }
+
         binding.recycler.doubleWallClick {
+            Log.d("MOTIONEVENT","DOUBLETAP")
             Toast.makeText(this, "${it+1}", Toast.LENGTH_SHORT).show() }
+
+        binding.recycler.singleWallClick{
+            Log.d("MOTIONEVENT","SINGLETAP")
+            Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    private inline fun RecyclerView.wallClick(crossinline action: (position: Int) -> Unit) =
+    private inline fun RecyclerView.singleWallClick(crossinline action: (position: Int) -> Unit) =
         setOnItemClickListener(onClick = action)
 
     private inline fun RecyclerView.doubleWallClick(crossinline action: (position: Int) -> Unit) =
@@ -50,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         addOnItemTouchListener(WallListener(this,
             object : WallClickListener {
-                override fun wallClick(view: View, position: Int) {
+                override fun singleWallClick(cView: View, position: Int) {
                     onClick(position)
 
                 }
